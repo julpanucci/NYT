@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				B9324B3E23E9998700D0089F /* AppDelegate.swift */,
-				B9324B6E23E99A3800D0089F /* Modules */,
-				B9324B6023E99A0A00D0089F /* Supporting Files */,
+				B9324B8123E99C4A00D0089F /* Modules */,
+				B9324B8423E99CCC00D0089F /* Supporting Files */,
 			);
 			path = NYT;
 			sourceTree = "<group>";
@@ -121,17 +121,28 @@
 			path = NYTTests;
 			sourceTree = "<group>";
 		};
-		B9324B6023E99A0A00D0089F /* Supporting Files */ = {
+		B9324B8123E99C4A00D0089F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B9324B4723E9998700D0089F /* Assets.xcassets */,
-				B9324B4923E9998700D0089F /* LaunchScreen.storyboard */,
-				B9324B4C23E9998700D0089F /* Info.plist */,
+				B9324B8323E99CBA00D0089F /* HomeScreen */,
+				B9324B8223E99CA800D0089F /* DetailScreen */,
 			);
-			path = "Supporting Files";
+			name = Modules;
 			sourceTree = "<group>";
 		};
-		B9324B6D23E99A2F00D0089F /* HomeScreen */ = {
+		B9324B8223E99CA800D0089F /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B9324B6F23E99A5E00D0089F /* DetailScreenPresenter.swift */,
+				B9324B7023E99A5E00D0089F /* DetailScreenRouter.swift */,
+				B9324B7323E99A5E00D0089F /* DetailScreenInteractor.swift */,
+				B9324B7123E99A5E00D0089F /* DetailScreenViewController.swift */,
+				B9324B7223E99A5E00D0089F /* DetailScreenBuilder.swift */,
+			);
+			name = DetailScreen;
+			sourceTree = "<group>";
+		};
+		B9324B8323E99CBA00D0089F /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
 				B9324B6123E99A2700D0089F /* HomeScreenPresenter.swift */,
@@ -140,28 +151,17 @@
 				B9324B6423E99A2700D0089F /* HomeScreenBuilder.swift */,
 				B9324B6523E99A2700D0089F /* HomeScreenInteractor.swift */,
 			);
-			path = HomeScreen;
+			name = HomeScreen;
 			sourceTree = "<group>";
 		};
-		B9324B6E23E99A3800D0089F /* Modules */ = {
+		B9324B8423E99CCC00D0089F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B9324B6D23E99A2F00D0089F /* HomeScreen */,
-				B9324B7B23E99A6900D0089F /* DetailScreen */,
+				B9324B4C23E9998700D0089F /* Info.plist */,
+				B9324B4723E9998700D0089F /* Assets.xcassets */,
+				B9324B4923E9998700D0089F /* LaunchScreen.storyboard */,
 			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		B9324B7B23E99A6900D0089F /* DetailScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B9324B6F23E99A5E00D0089F /* DetailScreenPresenter.swift */,
-				B9324B7023E99A5E00D0089F /* DetailScreenRouter.swift */,
-				B9324B7123E99A5E00D0089F /* DetailScreenViewController.swift */,
-				B9324B7223E99A5E00D0089F /* DetailScreenBuilder.swift */,
-				B9324B7323E99A5E00D0089F /* DetailScreenInteractor.swift */,
-			);
-			path = DetailScreen;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
