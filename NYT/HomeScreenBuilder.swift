@@ -11,13 +11,14 @@ import UIKit
 
 //MARK: Router -
 protocol HomeScreenRouterProtocol: class {
-    
+    func routeToDetailScreen(article: Article)
 }
 //MARK: Presenter -
 protocol HomeScreenPresenterProtocol: class {
     func getArticles(searchText: String, page: Int)
     func onArticlesLoaded(articles: [Article])
     func onError(error: Error)
+    func articleSelected(article: Article)
 }
 
 //MARK: Interactor -

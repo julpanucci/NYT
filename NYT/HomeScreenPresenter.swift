@@ -35,6 +35,10 @@ class HomeScreenPresenter: HomeScreenPresenterProtocol {
         }
     }
     
+    func articleSelected(article: Article) {
+        self.router.routeToDetailScreen(article: article)
+    }
+    
     func onError(error: Error) {
         var title = "Oops"
         var message = "Something went wrong getting articles"

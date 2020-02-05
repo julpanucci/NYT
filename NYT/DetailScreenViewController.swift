@@ -12,9 +12,12 @@ import UIKit
 class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
 
 	var presenter: DetailScreenPresenterProtocol?
+    var article: Article?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .green
     }
 
 }

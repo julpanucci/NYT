@@ -12,4 +12,11 @@ import UIKit
 class HomeScreenRouter: HomeScreenRouterProtocol {
     
     weak var viewController: UIViewController?
+    
+    func routeToDetailScreen(article: Article) {
+        if let detailVC = DetailScreenBuilder.createModule() as? DetailScreenViewController {
+            detailVC.article = article
+            viewController?.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }

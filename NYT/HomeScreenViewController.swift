@@ -203,6 +203,12 @@ extension HomeScreenViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = self.articles[indexPath.row]
+        self.presenter?.articleSelected(article: article)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -224,6 +230,7 @@ extension HomeScreenViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.searchText = textField.text ?? ""
         self.titleLabel.text = self.searchText
+        self.title = self.searchText
         self.getInitialArticles(searchText: self.searchText)
         return true
     }
