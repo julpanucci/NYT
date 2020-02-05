@@ -20,5 +20,23 @@ class HomeScreenPresenter: HomeScreenPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
+    func getArticles(searchText: String, page: Int) {
+        self.interactor?.getArticles(searchText: searchText, page: page)
+    }
+    
+    func onArticlesLoaded(articles: [Article]) {
+        DispatchQueue.main.async {
+            self.view?.articlesLoaded(articles: articles)
+        }
+    }
+    
+    func onError(error: Error) {
+        let title = "Oops"
+        let message = "Something went wrong getting articles"
+        DispatchQueue.main.async {
+            self.view?.displayError(title: title, message: message)
+        }
+    }
 
 }
