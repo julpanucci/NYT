@@ -31,6 +31,8 @@
 		B94CD94F23EB3CBE00218DC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94CD94E23EB3CBE00218DC4 /* Lottie.framework */; };
 		B94CD95123EB3F6A00218DC4 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B94CD95023EB3F6A00218DC4 /* placeholder.png */; };
 		B94CD95323EB45E100218DC4 /* NoPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95223EB45E100218DC4 /* NoPaddingLabel.swift */; };
+		B94CD95523EB50B800218DC4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95423EB50B800218DC4 /* LoadingView.swift */; };
+		B94CD95823EB518600218DC4 /* loading_news.json in Resources */ = {isa = PBXBuildFile; fileRef = B94CD95723EB518600218DC4 /* loading_news.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		B94CD94E23EB3CBE00218DC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		B94CD95023EB3F6A00218DC4 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		B94CD95223EB45E100218DC4 /* NoPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPaddingLabel.swift; sourceTree = "<group>"; };
+		B94CD95423EB50B800218DC4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B94CD95723EB518600218DC4 /* loading_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_news.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 		B9324B8423E99CCC00D0089F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B94CD95623EB513E00218DC4 /* lottie */,
 				B94CD95023EB3F6A00218DC4 /* placeholder.png */,
 				B9324B4C23E9998700D0089F /* Info.plist */,
 				B9324B4723E9998700D0089F /* Assets.xcassets */,
@@ -213,8 +218,17 @@
 			children = (
 				B94CD94523EB284F00218DC4 /* ArticleCell.swift */,
 				B94CD95223EB45E100218DC4 /* NoPaddingLabel.swift */,
+				B94CD95423EB50B800218DC4 /* LoadingView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B94CD95623EB513E00218DC4 /* lottie */ = {
+			isa = PBXGroup;
+			children = (
+				B94CD95723EB518600218DC4 /* loading_news.json */,
+			);
+			name = lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +316,7 @@
 				B9324B4B23E9998700D0089F /* LaunchScreen.storyboard in Resources */,
 				B94CD95123EB3F6A00218DC4 /* placeholder.png in Resources */,
 				B9324B4823E9998700D0089F /* Assets.xcassets in Resources */,
+				B94CD95823EB518600218DC4 /* loading_news.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +373,7 @@
 				B9324B6823E99A2700D0089F /* HomeScreenRouter.swift in Sources */,
 				B9324B6923E99A2700D0089F /* HomeScreenViewController.swift in Sources */,
 				B9324B8823E99F4400D0089F /* HTTPService.swift in Sources */,
+				B94CD95523EB50B800218DC4 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

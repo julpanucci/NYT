@@ -16,7 +16,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     var articles = [Article]()
     var page = 0
     var searchText: String?
-        
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,50 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         tableView.dataSource = self
         tableView.register(ArticleCell.self, forCellReuseIdentifier: "ArticleCell")
         tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = headerView
+        tableView.backgroundView = loadingView
         return tableView
+    }()
+    
+    lazy var headerView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100))
+        view.backgroundColor = .white
+        
+        view.addSubview(searchField)
+        NSLayoutConstraint.activate([
+            self.searchField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            self.searchField.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+            self.searchField.heightAnchor.constraint(equalToConstant: 20),
+        ])
+        return view
+    }()
+    
+    lazy var searchField: UITextField = {
+        let searchField = UITextField()
+        searchField.textColor = .black
+        searchField.font = UIFont.systemFont(ofSize: 18)
+        searchField.backgroundColor = .white
+        searchField.tintColor = .black
+        searchField.layer.cornerRadius = 4.0
+        searchField.clearButtonMode = .always
+        searchField.autocorrectionType = .no
+        searchField.autocapitalizationType = .none
+        searchField.placeholder = "Search"
+        searchField.returnKeyType = .search
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        
+        let searchIcon = UIImageView(image: UIImage(named: "search_icon"))
+        searchIcon.tintColor = .black
+        
+        searchField.leftView = searchIcon
+        searchField.leftViewMode = .always
+        return searchField
+    }()
+    
+    lazy var loadingView: LoadingView = {
+        let view = LoadingView(frame: self.view.frame)
+        view.descriptionText = "Searching for articles..."
+        return view
     }()
     
     override func viewDidLoad() {
@@ -52,9 +95,11 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     
     func setIsLoading(_ isLoading: Bool) {
         if isLoading {
-            
+            self.tableView.backgroundView?.isHidden = false
+            self.loadingView.startLoading()
         } else {
-            
+            self.tableView.backgroundView?.isHidden = true
+            self.loadingView.stopLoading()
         }
     }
     
@@ -92,8 +137,6 @@ extension HomeScreenViewController: UITableViewDataSource {
         
         return UITableViewCell()
     }
-    
-    
 }
 
 extension HomeScreenViewController: UITableViewDelegate {

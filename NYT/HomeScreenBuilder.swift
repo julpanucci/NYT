@@ -34,6 +34,7 @@ protocol HomeScreenViewProtocol: class {
     var presenter: HomeScreenPresenterProtocol?  { get set }
     func articlesLoaded(articles: [Article])
     func displayError(title: String, message: String)
+    func setIsLoading(_ isLoading: Bool)
 }
 
 class HomeScreenBuilder {

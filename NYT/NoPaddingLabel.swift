@@ -9,8 +9,21 @@
 import UIKit
 
 class NoPaddingLabel: UILabel {
-    override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        super.drawText(in: rect.inset(by: insets))
-    }
+    var textInsets = UIEdgeInsets.zero {
+           didSet { invalidateIntrinsicContentSize() }
+       }
+
+       override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        let insetRect = bounds.inset(by: textInsets)
+           let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
+           let invertedInsets = UIEdgeInsets(top: -textInsets.top,
+                                             left: -textInsets.left,
+                                             bottom: -textInsets.bottom,
+                                             right: -textInsets.right)
+        return textRect.inset(by: invertedInsets)
+       }
+
+       override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: textInsets))
+       }
 }
