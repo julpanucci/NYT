@@ -14,6 +14,8 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     var presenter: HomeScreenPresenterProtocol?
     
     var articles = [Article]()
+    var page = 0
+    var searchText: String?
         
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -33,6 +35,10 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         self.setConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.presenter?.getArticles(searchText: "election", page: 0)
+    }
+    
     func setConstraints() {
         self.view.addSubview(tableView)
         
@@ -42,6 +48,14 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
+    }
+    
+    func setIsLoading(_ isLoading: Bool) {
+        if isLoading {
+            
+        } else {
+            
+        }
     }
     
     func articlesLoaded(articles: [Article]) {
@@ -66,14 +80,13 @@ extension HomeScreenViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return self.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell {
-//            let article = articles[indexPath.row]
-    
-//            cell.article = article
+            let article = articles[indexPath.row]
+            cell.article = article
             return cell
         }
         
@@ -84,7 +97,14 @@ extension HomeScreenViewController: UITableViewDataSource {
 }
 
 extension HomeScreenViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.articles.count - 1 {
+            page += 1
+            self.presenter?.getArticles(searchText: "election", page: page)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        return 100
     }
 }

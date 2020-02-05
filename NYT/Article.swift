@@ -11,7 +11,7 @@ import Foundation
 // MARK: - SearchResponse
 struct ArticleSearchResponse: Codable {
     var status, copyright: String?
-    var articleResponse: ArticleRespone?
+    var articleResponse: ArticleResponse?
     
     enum CodingKeys: String, CodingKey {
         case articleResponse = "response"
@@ -20,12 +20,13 @@ struct ArticleSearchResponse: Codable {
 }
 
 // MARK: - Response
-struct ArticleRespone: Codable {
+struct ArticleResponse: Codable {
     var articles: [Article]?
     var meta: Meta?
     
     enum CodingKeys: String, CodingKey {
         case articles = "docs"
+        case meta
     }
 }
 
@@ -38,7 +39,7 @@ struct Article: Codable {
     var multimedia: [Multimedia]?
     var headline: Headline?
     var keywords: [Keyword]?
-    var pubDate: Date?
+    var pubDate: String?
     var documentType: DocumentType?
     var newsDesk: NewsDesk?
     var sectionName: SectionName?
@@ -48,6 +49,14 @@ struct Article: Codable {
     var id: String?
     var wordCount: Int?
     var uri: String?
+    
+    var thumbnailURL: URL? {
+        if let multiMedia = multimedia?.first(where: {$0.subtype == "thumbLarge"}), let urlString = multiMedia.url {
+            let fullURL = "https://www.nytimes.com/\(urlString)"
+            return URL(string: fullURL)
+        }
+        return nil
+    }
 
     enum CodingKeys: String, CodingKey {
         case abstract

@@ -29,7 +29,7 @@ class HTTPService {
         }
         
         guard let compURL = components?.url else {
-             fatalError("Error with url: \(String(describing: url))")
+            fatalError("Error with url: \(String(describing: url))")
         }
         
         
@@ -62,10 +62,17 @@ class HTTPService {
                 return
             }
             
-            if let data = data, let object = try? JSONDecoder().decode(T.self, from: data) {
-                completion(.success(object))
-                return
+            do {
+                if let data = data {
+                    let object = try JSONDecoder().decode(T.self, from: data) 
+                    completion(.success(object))
+                    return
+                }
+            } catch(let error) {
+                print(error)
+                completion(.failure(error))
             }
+            
         }.resume()
     }
 }

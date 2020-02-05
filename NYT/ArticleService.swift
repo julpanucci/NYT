@@ -24,7 +24,7 @@ class ArticleService: HTTPService {
         }
         
         let pageQuery = String(page)
-        let parameters: [String : String] = ["apiKey": self.apiKey, "page": pageQuery, "q": searchText]
+        let parameters: [String : String] = ["api-key": self.apiKey, "page": pageQuery, "q": searchText]
         
         self.sendRequest(url: url, method: .get, body: nil, queryParams: parameters) { (result: Result<ArticleSearchResponse, Error>)  in
             switch result {
