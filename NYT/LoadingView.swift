@@ -22,6 +22,7 @@ class LoadingView: UIView {
     var textColor: UIColor? = .black {
         didSet {
             self.descriptionLabel.textColor = self.textColor
+            self.changeLottieColor(self.textColor ?? .white)
         }
     }
     
@@ -68,24 +69,17 @@ class LoadingView: UIView {
     }
     
     func startLoading() {
-//        changeBallColor(color: .white)
-//        changeShadowColor(color: .white)
+        changeLottieColor(self.textColor ?? .white)
         
         if !lottieView.isAnimationPlaying {
             lottieView.play(fromProgress: nil, toProgress: 1, loopMode: .loop, completion: nil)
         }
     }
     
-    func changeBallColor(color: UIColor) {
-        let keypath = AnimationKeypath(keypath: "**.Shape Layer 1.Ellipse 1.Fill 1.Color")
+    func changeLottieColor(_ color: UIColor) {
+        let keypath = AnimationKeypath(keypath: "**.Kontur 1.Color")
         let colorProvider = ColorValueProvider(color.lottieColorValue)
         lottieView.setValueProvider(colorProvider, keypath: keypath)
-    }
-    
-    func changeShadowColor(color: UIColor) {
-        let keypath2 = AnimationKeypath(keypath: "**.Shape Layer 2.Ellipse 1.Fill 1.Color")
-        let colorProvider2 = ColorValueProvider(color.lottieColorValue)
-        lottieView.setValueProvider(colorProvider2, keypath: keypath2)
     }
     
     func stopLoading() {

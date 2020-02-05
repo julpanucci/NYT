@@ -26,17 +26,18 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = headerView
         tableView.backgroundView = loadingView
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
     lazy var headerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100))
-        view.backgroundColor = self.view.backgroundColor
+        view.backgroundColor = .clear
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.customFont(.chomsky, type: .regular, size: 30)
+        titleLabel.font = UIFont.customFont(.chomsky, size: 30)
         titleLabel.text = "New York Times"
         
         
@@ -55,6 +56,28 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         ])
         return view
     }()
+    
+    var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.customFont(.chomsky, size: 24)
+        titleLabel.textAlignment = .center
+        return titleLabel
+    }()
+    
+     lazy var titleView: UIView = {
+          let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: 48))
+          titleView.backgroundColor = .clear
+          titleView.addSubview(titleLabel)
+
+          NSLayoutConstraint.activate([
+              titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
+              titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
+          ])
+
+          return titleView
+      }()
     
     lazy var searchField: UITextField = {
         let searchField = UITextField()
@@ -82,6 +105,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     lazy var loadingView: LoadingView = {
         let view = LoadingView(frame: self.view.frame)
         view.descriptionText = "Searching for articles..."
+        view.textColor = .white
         view.isHidden = true
         return view
     }()
@@ -101,6 +125,10 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .white
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 16, height: 48))
+        self.navigationItem.titleView = titleView
+        self.navigationItem.titleView?.addSubview(self.titleView)
     }
     
     func setConstraints() {
@@ -124,6 +152,14 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         }
     }
     
+    func getInitialArticles(searchText: String) {
+        self.page = 0
+        self.articles.removeAll()
+        self.tableView.reloadData()
+        
+        self.presenter?.getArticles(searchText: searchText, page: self.page)
+    }
+    
     func articlesLoaded(articles: [Article]) {
         self.articles.append(contentsOf: articles)
         self.tableView.reloadData()
@@ -139,7 +175,6 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
 }
 
 extension HomeScreenViewController: UITableViewDataSource {
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -171,12 +206,25 @@ extension HomeScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 100 {
+            UIView.animate(withDuration: 0.5) {
+                self.titleView.alpha = 1.0
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.titleView.alpha = 0.0
+            }
+        }
+    }
 }
 
 extension HomeScreenViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.searchText = textField.text ?? ""
-        self.presenter?.getArticles(searchText: searchText, page: 0)
+        self.titleLabel.text = self.searchText
+        self.getInitialArticles(searchText: self.searchText)
         return true
     }
 }

@@ -32,11 +32,17 @@ class ArticleService: HTTPService {
                 if let articles = searchResponse.articleResponse?.articles {
                     completion(.success(articles))
                 } else {
-                    fatalError("Something went wrong getting the articles")
+                    let error = NYTError(title: "Oops", message: "We could not find any articles based on your search: \(searchText)")
+                    completion(.failure(error))
                 }
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
+}
+
+struct NYTError: Error {
+    var title: String?
+    var message: String?
 }

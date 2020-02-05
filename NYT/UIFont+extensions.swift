@@ -23,7 +23,7 @@ extension UIFont {
         case chomsky = "Chomsky"
     }
 
-    static func customFont(_ font: CustomFont, type: Type = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {
+    static func customFont(_ font: CustomFont, size: CGFloat = UIFont.systemFontSize) -> UIFont {
         if let font = UIFont(name: "\(font.rawValue)", size: size) {
             return font
         } else {
