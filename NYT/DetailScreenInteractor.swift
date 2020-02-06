@@ -12,4 +12,5 @@ import UIKit
 class DetailScreenInteractor: DetailScreenInteractorProtocol {
 
     weak var presenter: DetailScreenPresenterProtocol?
+
 }

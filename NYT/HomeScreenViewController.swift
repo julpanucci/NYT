@@ -66,18 +66,18 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         return titleLabel
     }()
     
-     lazy var titleView: UIView = {
-          let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: 48))
-          titleView.backgroundColor = .clear
-          titleView.addSubview(titleLabel)
-
-          NSLayoutConstraint.activate([
-              titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
-              titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
-          ])
-
-          return titleView
-      }()
+    lazy var titleView: UIView = {
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: 48))
+        titleView.backgroundColor = .clear
+        titleView.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerYAnchor.constraint(equalTo: titleView.centerYAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: titleView.centerXAnchor),
+        ])
+        
+        return titleView
+    }()
     
     lazy var searchField: UITextField = {
         let searchField = UITextField()
