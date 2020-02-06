@@ -110,6 +110,15 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         view.isHidden = true
         return view
     }()
+
+    var scrollToTopButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "scroll_up"), for: .normal)
+        button.alpha = 0.0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(scrollToTopButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,12 +143,19 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     
     func setConstraints() {
         self.view.addSubview(tableView)
+        self.view.addSubview(scrollToTopButton)
+        self.view.bringSubviewToFront(scrollToTopButton)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+
+            scrollToTopButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            scrollToTopButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: view.bounds.height / 2 - 50),
+            scrollToTopButton.heightAnchor.constraint(equalToConstant: 46),
+            scrollToTopButton.widthAnchor.constraint(equalToConstant: 46)
         ])
     }
     
@@ -172,6 +188,12 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         alert.addAction(dismiss)
         self.present(alert, animated: true, completion: nil)
     }
+
+    @objc func scrollToTopButtonTapped() {
+        if self.articles.count > 0 {
+             self.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
+        }
+    }
     
 }
 
@@ -193,6 +215,14 @@ extension HomeScreenViewController: UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+
+    func displayScrollToTopButton(shouldDisplay: Bool) {
+        if articles.count > 0 {
+            scrollToTopButton.alpha = shouldDisplay ? 1.0 : 0.0
+        } else {
+            scrollToTopButton.alpha = 0.0
+        }
     }
 }
 
@@ -217,10 +247,12 @@ extension HomeScreenViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 100 {
             UIView.animate(withDuration: 0.5) {
+                self.displayScrollToTopButton(shouldDisplay: true)
                 self.titleView.alpha = 1.0
             }
         } else {
             UIView.animate(withDuration: 0.5) {
+                self.displayScrollToTopButton(shouldDisplay: false)
                 self.titleView.alpha = 0.0
             }
         }
