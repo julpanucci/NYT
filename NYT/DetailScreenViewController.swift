@@ -47,8 +47,9 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     
     func loadURL() {
         if let urlString = article?.webURL, let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            self.webView.load(request)
+            if let some = try? String(contentsOf: url) {
+                self.webView.loadHTMLString(some, baseURL: nil)
+            }
         }
     }
     

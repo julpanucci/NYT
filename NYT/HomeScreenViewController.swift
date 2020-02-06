@@ -173,8 +173,10 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         self.page = 0
         self.articles.removeAll()
         self.tableView.reloadData()
-        
-        self.presenter?.getArticles(searchText: searchText, page: self.page)
+
+        if searchText != "" {
+            self.presenter?.getArticles(searchText: searchText, page: self.page)
+        }
     }
     
     func articlesLoaded(articles: [Article]) {
@@ -191,7 +193,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
 
     @objc func scrollToTopButtonTapped() {
         if self.articles.count > 0 {
-             self.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
+            self.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
         }
     }
     
