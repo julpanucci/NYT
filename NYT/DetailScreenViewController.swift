@@ -34,6 +34,15 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         
         return view
     }()
+
+    var shareButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "share_button"), for: .normal)
+        button.alpha = 1.0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +65,8 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     func setConstraints() {
         self.view.addSubview(webView)
         self.view.addSubview(loadingView)
+        self.view.addSubview(shareButton)
+        self.view.bringSubviewToFront(shareButton)
 
         
         NSLayoutConstraint.activate([
@@ -67,7 +78,12 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            loadingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+
+            shareButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            shareButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: view.bounds.height / 2 - 50),
+            shareButton.heightAnchor.constraint(equalToConstant: 46),
+            shareButton.widthAnchor.constraint(equalToConstant: 46)
         ])
         
     }
@@ -81,6 +97,14 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             UIView.animate(withDuration: 0.5) {
                 self.loadingView.alpha = 0.0
             }
+        }
+    }
+
+    @objc func shareButtonTapped() {
+        if let urlString = article?.webURL {
+            let uiActivityController = UIActivityViewController(activityItems: [urlString], applicationActivities: nil)
+            uiActivityController.popoverPresentationController?.sourceView = self.view
+            self.present(uiActivityController, animated: true, completion: nil)
         }
     }
     
