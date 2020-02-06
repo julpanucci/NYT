@@ -35,6 +35,7 @@
 		B94CD95823EB518600218DC4 /* loading_news.json in Resources */ = {isa = PBXBuildFile; fileRef = B94CD95723EB518600218DC4 /* loading_news.json */; };
 		B94CD95B23EB58DD00218DC4 /* Chomsky.otf in Resources */ = {isa = PBXBuildFile; fileRef = B94CD95A23EB58DD00218DC4 /* Chomsky.otf */; };
 		B94CD95D23EB591700218DC4 /* UIFont+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95C23EB591700218DC4 /* UIFont+extensions.swift */; };
+		B94CD96023EBA04500218DC4 /* ArticleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		B94CD95723EB518600218DC4 /* loading_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_news.json; sourceTree = "<group>"; };
 		B94CD95A23EB58DD00218DC4 /* Chomsky.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chomsky.otf; sourceTree = "<group>"; };
 		B94CD95C23EB591700218DC4 /* UIFont+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extensions.swift"; sourceTree = "<group>"; };
+		B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				B9324B7023E99A5E00D0089F /* DetailScreenRouter.swift */,
 				B9324B7323E99A5E00D0089F /* DetailScreenInteractor.swift */,
 				B9324B7123E99A5E00D0089F /* DetailScreenViewController.swift */,
+				B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */,
 				B9324B7223E99A5E00D0089F /* DetailScreenBuilder.swift */,
 			);
 			name = DetailScreen;
@@ -363,6 +366,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -387,6 +391,7 @@
 				B9324B7523E99A5E00D0089F /* DetailScreenPresenter.swift in Sources */,
 				B9324B6A23E99A2700D0089F /* HomeScreenBuilder.swift in Sources */,
 				B9324B7923E99A5E00D0089F /* DetailScreenInteractor.swift in Sources */,
+				B94CD96023EBA04500218DC4 /* ArticleLoadingView.swift in Sources */,
 				B94CD94823EB2C3A00218DC4 /* Constants.swift in Sources */,
 				B9324B6723E99A2700D0089F /* HomeScreenPresenter.swift in Sources */,
 				B94CD95D23EB591700218DC4 /* UIFont+extensions.swift in Sources */,

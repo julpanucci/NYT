@@ -9,10 +9,11 @@
 
 import UIKit
 import WebKit
+import SkeletonView
 
 class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
-
-	var presenter: DetailScreenPresenterProtocol?
+    
+    var presenter: DetailScreenPresenterProtocol?
     var article: Article?
     
     lazy var webView: WKWebView = {
@@ -21,13 +22,23 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         webView.allowsBackForwardNavigationGestures = false
         webView.uiDelegate = self
         webView.navigationDelegate = self
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         return webView
     }()
-
-	override func viewDidLoad() {
+    
+    lazy var loadingView: ArticleLoadingView = {
+        let view = ArticleLoadingView(frame: self.view.frame)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setIsLoading(true)
+        view.alpha = 1.0
+        
+        return view
+    }()
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = UIColor(red: 0.01, green: 0.51, blue: 0.56, alpha: 1.00)
         
         self.loadURL()
         
@@ -43,28 +54,52 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     
     func setConstraints() {
         self.view.addSubview(webView)
+        self.view.addSubview(loadingView)
+
         
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+        
     }
     
     func setIsLoading(_ isLoading: Bool) {
         if isLoading {
-            print("is loading...")
+            UIView.animate(withDuration: 0.5) {
+                self.loadingView.alpha = 1.0
+            }
         } else {
-            print("Stopped loading")
+            UIView.animate(withDuration: 0.5) {
+                self.loadingView.alpha = 0.0
+            }
         }
     }
-
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            if webView.estimatedProgress >= 0.45 {
+                self.setIsLoading(false)
+            }
+        }
+    }
+    
 }
 
 extension DetailScreenViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         self.setIsLoading(true)
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.setIsLoading(false)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

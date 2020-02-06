@@ -27,6 +27,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         tableView.tableHeaderView = headerView
         tableView.backgroundView = loadingView
         tableView.backgroundColor = .clear
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
@@ -228,6 +229,8 @@ extension HomeScreenViewController: UITableViewDelegate {
 
 extension HomeScreenViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        
         self.searchText = textField.text ?? ""
         self.titleLabel.text = self.searchText
         self.title = self.searchText

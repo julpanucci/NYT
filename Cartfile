@@ -1,2 +1,3 @@
 github "onevcat/Kingfisher" ~> 5.0
 github "airbnb/lottie-ios" "master"
+github "Juanpe/SkeletonView"

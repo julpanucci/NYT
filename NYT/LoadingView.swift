@@ -68,9 +68,7 @@ class LoadingView: UIView {
         return nil
     }
     
-    func startLoading() {
-        changeLottieColor(self.textColor ?? .white)
-        
+    func startLoading() {        
         if !lottieView.isAnimationPlaying {
             lottieView.play(fromProgress: nil, toProgress: 1, loopMode: .loop, completion: nil)
         }
