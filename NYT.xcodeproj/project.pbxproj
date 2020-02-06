@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430AB33B23EC5C96001F6BFB /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430AB33A23EC5C96001F6BFB /* SkeletonView.framework */; };
 		B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9324B3B23E9998700D0089F /* CoreData.framework */; };
 		B9324B3F23E9998700D0089F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B3E23E9998700D0089F /* AppDelegate.swift */; };
 		B9324B4823E9998700D0089F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4723E9998700D0089F /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		430AB33A23EC5C96001F6BFB /* SkeletonView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkeletonView.framework; path = Carthage/Build/iOS/SkeletonView.framework; sourceTree = "<group>"; };
 		B9324B3823E9998700D0089F /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9324B3B23E9998700D0089F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9324B3E23E9998700D0089F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430AB33B23EC5C96001F6BFB /* SkeletonView.framework in Frameworks */,
 				B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */,
 				B94CD94D23EB3CBB00218DC4 /* Kingfisher.framework in Frameworks */,
 				B94CD94F23EB3CBE00218DC4 /* Lottie.framework in Frameworks */,
@@ -127,6 +130,7 @@
 		B9324B3A23E9998700D0089F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				430AB33A23EC5C96001F6BFB /* SkeletonView.framework */,
 				B94CD94E23EB3CBE00218DC4 /* Lottie.framework */,
 				B94CD94C23EB3CBB00218DC4 /* Kingfisher.framework */,
 				B9324B3B23E9998700D0089F /* CoreData.framework */,
