@@ -21,7 +21,11 @@ class HomeScreenInteractor: HomeScreenInteractorProtocol {
             case .success(let articles):
                 self.presenter?.onArticlesLoaded(articles: articles)
             case .failure(let error):
-                self.presenter?.onError(error: error)
+                if page > 0 {
+                    self.presenter?.onPaginationError(error: error)
+                } else {
+                    self.presenter?.onError(error: error)
+                }
             }
         }
     }

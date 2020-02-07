@@ -18,6 +18,7 @@ protocol HomeScreenPresenterProtocol: class {
     func getArticles(searchText: String, page: Int)
     func onArticlesLoaded(articles: [Article])
     func onError(error: Error)
+    func onPaginationError(error: Error)
     func articleSelected(article: Article)
 }
 
@@ -36,6 +37,7 @@ protocol HomeScreenViewProtocol: class {
     func articlesLoaded(articles: [Article])
     func displayError(title: String, message: String)
     func setIsLoading(_ isLoading: Bool)
+    func displayPaginationError(message: String?)
 }
 
 class HomeScreenBuilder {

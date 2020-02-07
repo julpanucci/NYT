@@ -110,6 +110,43 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         view.isHidden = true
         return view
     }()
+    
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    
+    lazy var paginationLoadingView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 150))
+        view.backgroundColor = .white
+        
+        self.activityIndicator.color = .black
+        self.activityIndicator.center = view.center
+        
+        view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
+        return view
+    }()
+    
+    lazy var paginationErrorView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 150))
+        
+        let label = UILabel(frame: CGRect(x: 16, y: 16, width: self.view.bounds.width - 32, height: 25))
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.text = "Unable to load more articles"
+        label.textAlignment = .center
+        
+        let button = UIButton(frame: CGRect(x: 16, y: 70, width: self.view.bounds.width - 32, height: 50))
+        button.setTitle("Retry", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.backgroundColor = UIColor(red: 0.01, green: 0.51, blue: 0.56, alpha: 1.00)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 4.0
+        button.addTarget(self, action: #selector(retryPaginatedLoad), for: .touchUpInside)
+        
+        view.addSubview(label)
+        view.addSubview(button)
+        
+        view.backgroundColor = .white
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,9 +200,21 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         }
     }
     
+    @objc func retryPaginatedLoad() {
+        if self.searchText != "" {
+            self.tableView.tableFooterView = paginationLoadingView
+            self.presenter?.getArticles(searchText: searchText, page: self.page)
+        }
+    }
+    
     func articlesLoaded(articles: [Article]) {
         self.articles.append(contentsOf: articles)
+        self.tableView.tableFooterView = UIView()
         self.tableView.reloadData()
+    }
+    
+    func displayPaginationError(message: String?) {
+        self.tableView.tableFooterView = paginationErrorView
     }
     
     func displayError(title: String, message: String) {
@@ -202,6 +251,7 @@ extension HomeScreenViewController: UITableViewDelegate {
         if indexPath.row == self.articles.count - 1 {
             page += 1
             self.presenter?.getArticles(searchText: self.searchText, page: page)
+            self.tableView.tableFooterView = paginationLoadingView
         }
     }
     

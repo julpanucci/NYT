@@ -14,7 +14,7 @@ class HTTPService {
     typealias GenericResponse<T: Codable> = (Result<T, Error>) -> Void
     
     
-    func sendRequest<T: Codable>(url: URL?, method: HTTPMethod = .get, body: [String: Any]? = nil, queryParams: [String: String]? = nil, completion: @escaping GenericResponse<T>) {
+    func sendRequest<T: Codable>(url: URL?, method: HTTPMethod = .get, body: [String: Any]? = nil, queryParams: [String: String]? = nil, timeoutInterval: Double = 30.0,completion: @escaping GenericResponse<T>) {
         
         guard let newUrl = url else {
             fatalError("Error with url: \(String(describing: url))")
@@ -33,7 +33,8 @@ class HTTPService {
         }
         
         
-        let request = URLRequest(url: compURL)
+        let request = URLRequest(url: compURL, timeoutInterval: timeoutInterval)
+        
         self.sendRequest(urlRequest: request, method: method, body: body, completion: completion)
     }
     
