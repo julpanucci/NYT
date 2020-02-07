@@ -49,9 +49,13 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         
         self.view.backgroundColor = UIColor(red: 0.01, green: 0.51, blue: 0.56, alpha: 1.00)
         
-        self.loadURL()
-        
         self.setConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        self.loadURL()
     }
     
     func loadURL() {

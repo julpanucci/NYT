@@ -105,11 +105,6 @@ class ArticleLoadingView: UIView {
             placeHolderView2.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             placeHolderView2.heightAnchor.constraint(equalToConstant: 100),
             placeHolderView2.widthAnchor.constraint(equalToConstant: 150),
-            
-            textView2.topAnchor.constraint(equalTo: placeHolderView1.bottomAnchor, constant: 8),
-            textView2.leadingAnchor.constraint(equalTo: placeHolderView2.trailingAnchor, constant: 8),
-            textView2.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            textView2.heightAnchor.constraint(equalToConstant: 100),
         ])
     }
     
