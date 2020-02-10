@@ -32,6 +32,33 @@ If you don't have Homebrew installed on your machine, you can install it by runn
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+### Architecture 
+For this project, I have decided to user the VIPER design pattern. Viper is a design pattern that implements 'separation of concern' paradigm
+
+## VIPER
+Viper is a design pattern that implements 'separation of concern' paradigm  
+V - View  
+I - Interactor      
+P - Presentor  
+E - Entity  
+R - Router  
+
+View: Class that has all the code to show the app interface to the user and get their responses. Upon receiving a response View alerts the Presenter.
+
+Interactor: Has the business logics of an app. Primarily make API calls to fetch data from a source. Responsible for making data calls but not necessarily from itself.
+Router: Does the wire-framing. Listens from the presenter about which screen to present and executes that.
+Entity: Model classes used by the interactor.
+
+Presenter : Gets user response from the View and work accordingly. Only class to communicate with all the other components. Calls the router for wire-framing, Interactor to fetch data (network calls or local data calls), view to update the UI. 
+
+Router: Does the wire-framing. Listens from the presenter about which screen to present and executes that.
+
+
+### Testing
+Unit testing for this project has been done using BDD, with the help of the Quick and Nimble frameworks.  
+Quick and Nimble allows to easily describe how each part of test acts and behaves by describing each unit of code and asserting on the value we expect.
+
+
 ### Xcode
 Compiled using Xcode 11.3.1
 
