@@ -92,7 +92,7 @@ class HomeScreenPresenterSpec: QuickSpec {
                 it("calls .view.displayError()") {
                     let view = uut?.view as? MockHomeScreenViewController
                     expect(view?.displayErrorWasCalled).to(beTrue())
-                    expect(view?.title).toEventually(equal("some title"))
+                    expect(view?.mTitle).toEventually(equal("some title"))
                     expect(view?.message).toEventually(equal("some message"))
                 }
             }

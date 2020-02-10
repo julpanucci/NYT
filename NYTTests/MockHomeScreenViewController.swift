@@ -2,7 +2,7 @@ import UIKit
 
 @testable import NYT
 
-class MockHomeScreenViewController: HomeScreenViewProtocol {
+class MockHomeScreenViewController: UIViewController, HomeScreenViewProtocol {
     var presenter: HomeScreenPresenterProtocol?
     
     var articlesLoadedWasCalled = false
@@ -12,8 +12,9 @@ class MockHomeScreenViewController: HomeScreenViewProtocol {
     
     var isLoading = false
     var articles: [Article]?
-    var title: String?
+    
     var message: String?
+    var mTitle: String?
     
     func articlesLoaded(articles: [Article]) {
         articlesLoadedWasCalled = true
@@ -22,7 +23,7 @@ class MockHomeScreenViewController: HomeScreenViewProtocol {
     
     func displayError(title: String, message: String) {
         displayErrorWasCalled = true
-        self.title = title
+        self.mTitle = title
         self.message = message
     }
     

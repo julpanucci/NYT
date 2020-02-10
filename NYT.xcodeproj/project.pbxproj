@@ -48,6 +48,8 @@
 		B9DE52B623F20BD5002F01E0 /* MockHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */; };
 		B9DE52B823F214AF002F01E0 /* HomeScreenInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */; };
 		B9DE52BA23F21535002F01E0 /* MockArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B923F21535002F01E0 /* MockArticleService.swift */; };
+		B9DE52BC23F21CE4002F01E0 /* HomeScreenRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52BB23F21CE4002F01E0 /* HomeScreenRouterSpec.swift */; };
+		B9DE52BE23F21E9C002F01E0 /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52BD23F21E9C002F01E0 /* MockNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenViewController.swift; sourceTree = "<group>"; };
 		B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenInteractorSpec.swift; sourceTree = "<group>"; };
 		B9DE52B923F21535002F01E0 /* MockArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleService.swift; sourceTree = "<group>"; };
+		B9DE52BB23F21CE4002F01E0 /* HomeScreenRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRouterSpec.swift; sourceTree = "<group>"; };
+		B9DE52BD23F21E9C002F01E0 /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */,
 				B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */,
 				B9DE52B923F21535002F01E0 /* MockArticleService.swift */,
+				B9DE52BD23F21E9C002F01E0 /* MockNavigationController.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				4359812623F1DB3A001F7349 /* Mocks */,
 				B9324B5723E9998700D0089F /* Info.plist */,
 				4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */,
+				B9DE52BB23F21CE4002F01E0 /* HomeScreenRouterSpec.swift */,
 				43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */,
 				B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */,
 			);
@@ -478,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9DE52BA23F21535002F01E0 /* MockArticleService.swift in Sources */,
+				B9DE52BC23F21CE4002F01E0 /* HomeScreenRouterSpec.swift in Sources */,
 				B9DE52B823F214AF002F01E0 /* HomeScreenInteractorSpec.swift in Sources */,
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
 				43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */,
@@ -487,6 +494,7 @@
 				B9DE52B423F20B71002F01E0 /* MockHomeScreenRouter.swift in Sources */,
 				4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */,
 				43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */,
+				B9DE52BE23F21E9C002F01E0 /* MockNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
