@@ -60,10 +60,22 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     
     func loadURL() {
         if let urlString = article?.webURL, let url = URL(string: urlString) {
-            if let some = try? String(contentsOf: url) {
+            do {
+                let some = try String(contentsOf: url)
                 self.webView.loadHTMLString(some, baseURL: nil)
+            } catch (let error) {
+                self.displayErrorView()
             }
         }
+    }
+    
+    func displayErrorView() {
+        let alert = UIAlertController(title: "Oops", message: "We had a problem loading that article!", preferredStyle: .alert)
+        let tryAgain = UIAlertAction(title: "Try Again", style: .default) { (action) in
+            self.loadURL()
+        }
+        let cancel = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(tryAgain)
     }
     
     func setConstraints() {
