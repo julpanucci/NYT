@@ -11,9 +11,9 @@ import UIKit
 
 class HomeScreenPresenter: HomeScreenPresenterProtocol {
     
-    weak private var view: HomeScreenViewProtocol?
+    weak var view: HomeScreenViewProtocol?
     var interactor: HomeScreenInteractorProtocol?
-    private let router: HomeScreenRouterProtocol
+    let router: HomeScreenRouterProtocol
     
     init(interface: HomeScreenViewProtocol, interactor: HomeScreenInteractorProtocol?, router: HomeScreenRouterProtocol) {
         self.view = interface

@@ -44,6 +44,8 @@
 		B94CD95B23EB58DD00218DC4 /* Chomsky.otf in Resources */ = {isa = PBXBuildFile; fileRef = B94CD95A23EB58DD00218DC4 /* Chomsky.otf */; };
 		B94CD95D23EB591700218DC4 /* UIFont+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95C23EB591700218DC4 /* UIFont+extensions.swift */; };
 		B94CD96023EBA04500218DC4 /* ArticleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */; };
+		B9DE52B423F20B71002F01E0 /* MockHomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */; };
+		B9DE52B623F20BD5002F01E0 /* MockHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		B94CD95A23EB58DD00218DC4 /* Chomsky.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chomsky.otf; sourceTree = "<group>"; };
 		B94CD95C23EB591700218DC4 /* UIFont+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extensions.swift"; sourceTree = "<group>"; };
 		B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleLoadingView.swift; sourceTree = "<group>"; };
+		B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenRouter.swift; sourceTree = "<group>"; };
+		B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				4359812723F1DB4B001F7349 /* MockLoadingView.swift */,
 				4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */,
 				43CD261123F1E03D0095D566 /* MockTableView.swift */,
+				B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */,
+				B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -468,7 +474,9 @@
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
 				43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */,
 				4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */,
+				B9DE52B623F20BD5002F01E0 /* MockHomeScreenViewController.swift in Sources */,
 				43CD261723F1F2D90095D566 /* MockHomeScreenInteractor.swift in Sources */,
+				B9DE52B423F20B71002F01E0 /* MockHomeScreenRouter.swift in Sources */,
 				4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */,
 				43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */,
 			);
