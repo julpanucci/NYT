@@ -14,6 +14,8 @@
 		4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812723F1DB4B001F7349 /* MockLoadingView.swift */; };
 		4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */; };
 		43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261123F1E03D0095D566 /* MockTableView.swift */; };
+		43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */; };
+		43CD261723F1F2D90095D566 /* MockHomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261623F1F2D90095D566 /* MockHomeScreenInteractor.swift */; };
 		B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9324B3B23E9998700D0089F /* CoreData.framework */; };
 		B9324B3F23E9998700D0089F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B3E23E9998700D0089F /* AppDelegate.swift */; };
 		B9324B4823E9998700D0089F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4723E9998700D0089F /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		4359812723F1DB4B001F7349 /* MockLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadingView.swift; sourceTree = "<group>"; };
 		4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenPresenter.swift; sourceTree = "<group>"; };
 		43CD261123F1E03D0095D566 /* MockTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
+		43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenterSpec.swift; sourceTree = "<group>"; };
+		43CD261623F1F2D90095D566 /* MockHomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenInteractor.swift; sourceTree = "<group>"; };
 		B9324B3823E9998700D0089F /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9324B3B23E9998700D0089F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9324B3E23E9998700D0089F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		4359812623F1DB3A001F7349 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				43CD261623F1F2D90095D566 /* MockHomeScreenInteractor.swift */,
 				4359812723F1DB4B001F7349 /* MockLoadingView.swift */,
 				4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */,
 				43CD261123F1E03D0095D566 /* MockTableView.swift */,
@@ -183,6 +188,7 @@
 				4359812623F1DB3A001F7349 /* Mocks */,
 				B9324B5723E9998700D0089F /* Info.plist */,
 				4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */,
+				43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */,
 			);
 			path = NYTTests;
 			sourceTree = "<group>";
@@ -460,7 +466,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
+				43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */,
 				4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */,
+				43CD261723F1F2D90095D566 /* MockHomeScreenInteractor.swift in Sources */,
 				4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */,
 				43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */,
 			);
