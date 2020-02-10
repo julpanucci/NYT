@@ -46,6 +46,8 @@
 		B94CD96023EBA04500218DC4 /* ArticleLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */; };
 		B9DE52B423F20B71002F01E0 /* MockHomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */; };
 		B9DE52B623F20BD5002F01E0 /* MockHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */; };
+		B9DE52B823F214AF002F01E0 /* HomeScreenInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */; };
+		B9DE52BA23F21535002F01E0 /* MockArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE52B923F21535002F01E0 /* MockArticleService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		B94CD95F23EBA04500218DC4 /* ArticleLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleLoadingView.swift; sourceTree = "<group>"; };
 		B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenRouter.swift; sourceTree = "<group>"; };
 		B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenViewController.swift; sourceTree = "<group>"; };
+		B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenInteractorSpec.swift; sourceTree = "<group>"; };
+		B9DE52B923F21535002F01E0 /* MockArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				43CD261123F1E03D0095D566 /* MockTableView.swift */,
 				B9DE52B323F20B71002F01E0 /* MockHomeScreenRouter.swift */,
 				B9DE52B523F20BD5002F01E0 /* MockHomeScreenViewController.swift */,
+				B9DE52B923F21535002F01E0 /* MockArticleService.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				B9324B5723E9998700D0089F /* Info.plist */,
 				4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */,
 				43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */,
+				B9DE52B723F214AF002F01E0 /* HomeScreenInteractorSpec.swift */,
 			);
 			path = NYTTests;
 			sourceTree = "<group>";
@@ -471,6 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DE52BA23F21535002F01E0 /* MockArticleService.swift in Sources */,
+				B9DE52B823F214AF002F01E0 /* HomeScreenInteractorSpec.swift in Sources */,
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
 				43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */,
 				4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */,

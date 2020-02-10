@@ -17,7 +17,7 @@ class ArticleService: HTTPService {
     
     typealias ArticleResult = (Result<[Article], Error>) -> Void
     
-    func getArticles(searchText: String, forPage page: Int,completion: @escaping ArticleResult) {
+    func getArticles(searchText: String, forPage page: Int, completion: @escaping ArticleResult) {
         guard let url = URL(string: "\(baseURL)") else {
             print("Error with url: \(baseURL)")
             return
