@@ -57,7 +57,7 @@ class HomeScreenPresenter: HomeScreenPresenterProtocol {
     func onPaginationError(error: Error) {
         DispatchQueue.main.async {
             self.view?.setIsLoading(false)
-            self.view?.displayPaginationError(message: nil)
+            self.view?.displayPaginationError()
         }
     }
     

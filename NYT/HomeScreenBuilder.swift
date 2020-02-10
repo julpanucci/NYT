@@ -37,7 +37,7 @@ protocol HomeScreenViewProtocol: class {
     func articlesLoaded(articles: [Article])
     func displayError(title: String, message: String)
     func setIsLoading(_ isLoading: Bool)
-    func displayPaginationError(message: String?)
+    func displayPaginationError()
 }
 
 class HomeScreenBuilder {

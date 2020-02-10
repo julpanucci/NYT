@@ -213,7 +213,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         self.tableView.reloadData()
     }
     
-    func displayPaginationError(message: String?) {
+    func displayPaginationError() {
         self.tableView.tableFooterView = paginationErrorView
     }
     
