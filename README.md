@@ -38,5 +38,5 @@ Compiled using Xcode 11.3.1
 ## Dependencies Used
 -  [KingFisher](https://github.com/onevcat/Kingfisher)
 - [Lottie](https://github.com/airbnb/lottie-ios)
-- [SkeleltonView](https://github.com/Juanpe/SkeletonView)
+- [SkeletonView](https://github.com/Juanpe/SkeletonView)
 
