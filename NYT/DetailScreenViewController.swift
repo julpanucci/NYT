@@ -94,7 +94,7 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
- 
+
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),

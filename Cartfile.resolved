@@ -1,3 +1,5 @@
 github "Juanpe/SkeletonView" "1.8.3"
+github "Quick/Nimble" "v8.0.2"
+github "Quick/Quick" "v2.1.0"
 github "airbnb/lottie-ios" "8f81de8d81da8631fd95ff81a9db133b76e13ea4"
 github "onevcat/Kingfisher" "5.13.0"

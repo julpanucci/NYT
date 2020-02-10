@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		430AB33B23EC5C96001F6BFB /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430AB33A23EC5C96001F6BFB /* SkeletonView.framework */; };
+		4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */; };
+		4359812323F1CFD8001F7349 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4359812223F1CFD8001F7349 /* Nimble.framework */; };
+		4359812523F1CFDB001F7349 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4359812423F1CFDB001F7349 /* Quick.framework */; };
 		B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9324B3B23E9998700D0089F /* CoreData.framework */; };
 		B9324B3F23E9998700D0089F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B3E23E9998700D0089F /* AppDelegate.swift */; };
 		B9324B4823E9998700D0089F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4723E9998700D0089F /* Assets.xcassets */; };
 		B9324B4B23E9998700D0089F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4923E9998700D0089F /* LaunchScreen.storyboard */; };
-		B9324B5623E9998700D0089F /* NYTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B5523E9998700D0089F /* NYTTests.swift */; };
 		B9324B6723E99A2700D0089F /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B6123E99A2700D0089F /* HomeScreenPresenter.swift */; };
 		B9324B6823E99A2700D0089F /* HomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B6223E99A2700D0089F /* HomeScreenRouter.swift */; };
 		B9324B6923E99A2700D0089F /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B6323E99A2700D0089F /* HomeScreenViewController.swift */; };
@@ -51,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		430AB33A23EC5C96001F6BFB /* SkeletonView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkeletonView.framework; path = Carthage/Build/iOS/SkeletonView.framework; sourceTree = "<group>"; };
+		4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewControllerSpec.swift; sourceTree = "<group>"; };
+		4359812223F1CFD8001F7349 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		4359812423F1CFDB001F7349 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		B9324B3823E9998700D0089F /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9324B3B23E9998700D0089F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9324B3E23E9998700D0089F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +63,6 @@
 		B9324B4A23E9998700D0089F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9324B4C23E9998700D0089F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9324B5123E9998700D0089F /* NYTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9324B5523E9998700D0089F /* NYTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTests.swift; sourceTree = "<group>"; };
 		B9324B5723E9998700D0089F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9324B6123E99A2700D0089F /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
 		B9324B6223E99A2700D0089F /* HomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenRouter.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4359812323F1CFD8001F7349 /* Nimble.framework in Frameworks */,
+				4359812523F1CFDB001F7349 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +136,8 @@
 		B9324B3A23E9998700D0089F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4359812423F1CFDB001F7349 /* Quick.framework */,
+				4359812223F1CFD8001F7349 /* Nimble.framework */,
 				430AB33A23EC5C96001F6BFB /* SkeletonView.framework */,
 				B94CD94E23EB3CBE00218DC4 /* Lottie.framework */,
 				B94CD94C23EB3CBB00218DC4 /* Kingfisher.framework */,
@@ -156,8 +164,8 @@
 		B9324B5423E9998700D0089F /* NYTTests */ = {
 			isa = PBXGroup;
 			children = (
-				B9324B5523E9998700D0089F /* NYTTests.swift */,
 				B9324B5723E9998700D0089F /* Info.plist */,
+				4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */,
 			);
 			path = NYTTests;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 				B9324B4D23E9998700D0089F /* Sources */,
 				B9324B4E23E9998700D0089F /* Frameworks */,
 				B9324B4F23E9998700D0089F /* Resources */,
+				4359811F23F1CE82001F7349 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -360,6 +369,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4359811F23F1CE82001F7349 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		B94CD94B23EB3BEA00218DC4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,7 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9324B5623E9998700D0089F /* NYTTests.swift in Sources */,
+				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +633,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGYJ3R2C9F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NYTTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -627,6 +659,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGYJ3R2C9F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NYTTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
