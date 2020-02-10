@@ -11,6 +11,9 @@
 		4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */; };
 		4359812323F1CFD8001F7349 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4359812223F1CFD8001F7349 /* Nimble.framework */; };
 		4359812523F1CFDB001F7349 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4359812423F1CFDB001F7349 /* Quick.framework */; };
+		4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812723F1DB4B001F7349 /* MockLoadingView.swift */; };
+		4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */; };
+		43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261123F1E03D0095D566 /* MockTableView.swift */; };
 		B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9324B3B23E9998700D0089F /* CoreData.framework */; };
 		B9324B3F23E9998700D0089F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B3E23E9998700D0089F /* AppDelegate.swift */; };
 		B9324B4823E9998700D0089F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4723E9998700D0089F /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewControllerSpec.swift; sourceTree = "<group>"; };
 		4359812223F1CFD8001F7349 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4359812423F1CFDB001F7349 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		4359812723F1DB4B001F7349 /* MockLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoadingView.swift; sourceTree = "<group>"; };
+		4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenPresenter.swift; sourceTree = "<group>"; };
+		43CD261123F1E03D0095D566 /* MockTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		B9324B3823E9998700D0089F /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9324B3B23E9998700D0089F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9324B3E23E9998700D0089F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4359812623F1DB3A001F7349 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				4359812723F1DB4B001F7349 /* MockLoadingView.swift */,
+				4359812923F1DD7F001F7349 /* MockHomeScreenPresenter.swift */,
+				43CD261123F1E03D0095D566 /* MockTableView.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 		B9324B2F23E9998700D0089F = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +168,8 @@
 				B9324B3E23E9998700D0089F /* AppDelegate.swift */,
 				B94CD94723EB2C3A00218DC4 /* Constants.swift */,
 				B94CD95E23EB5AB000218DC4 /* Extensions */,
-				B94CD94A23EB354200218DC4 /* Views */,
 				B94CD94923EB352900218DC4 /* Models */,
+				B94CD94A23EB354200218DC4 /* Views */,
 				B9324B8123E99C4A00D0089F /* Modules */,
 				B9324B8423E99CCC00D0089F /* Supporting Files */,
 				B9324B8923E99FD500D0089F /* Services */,
@@ -164,6 +180,7 @@
 		B9324B5423E9998700D0089F /* NYTTests */ = {
 			isa = PBXGroup;
 			children = (
+				4359812623F1DB3A001F7349 /* Mocks */,
 				B9324B5723E9998700D0089F /* Info.plist */,
 				4359812023F1CF22001F7349 /* HomeScreenViewControllerSpec.swift */,
 			);
@@ -443,6 +460,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
+				4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */,
+				4359812823F1DB4B001F7349 /* MockLoadingView.swift in Sources */,
+				43CD261223F1E03D0095D566 /* MockTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
