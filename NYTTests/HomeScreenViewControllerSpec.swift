@@ -308,6 +308,50 @@ class HomeScreenViewControllerSpec: QuickSpec {
                         }
                     }
                 }
+
+                describe("when .textFieldShouldReturn()") {
+                    describe("when .textField.text pass in is not nil") {
+                        var result: Bool = false
+                        beforeEach {
+                            let textField = UITextField()
+                            textField.text = "hello"
+                            result = uut!.textFieldShouldReturn(textField)
+                        }
+
+                        it("returns true") {
+                            expect(result).to(beTrue())
+                        }
+
+                        it("sets .searchText equal to text passed in") {
+                            expect(uut?.searchText).to(equal("hello"))
+                        }
+
+                        it("sets .title equal to text passed in ") {
+                            expect(uut?.title).to(equal("hello"))
+                        }
+                    }
+
+                    describe("when .textField.text passed in is nil") {
+                        var result: Bool = false
+                        beforeEach {
+                            let textField = UITextField()
+                            textField.text = nil
+                            result = uut!.textFieldShouldReturn(textField)
+                        }
+
+                        it("returns true") {
+                            expect(result).to(beTrue())
+                        }
+
+                        it("sets .searchText equal to text passed in") {
+                            expect(uut?.searchText).to(equal(""))
+                        }
+
+                        it("sets .title equal to text passed in ") {
+                            expect(uut?.title).to(equal(""))
+                        }
+                    }
+                }
             }
         }
     }
