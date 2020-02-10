@@ -64,6 +64,8 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
                 let some = try String(contentsOf: url)
                 self.webView.loadHTMLString(some, baseURL: nil)
             } catch (let error) {
+                print(error)
+                self.setIsLoading(false)
                 self.displayErrorView()
             }
         }
@@ -75,7 +77,9 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             self.loadURL()
         }
         let cancel = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(cancel)
         alert.addAction(tryAgain)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setConstraints() {
@@ -90,7 +94,7 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            
+ 
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
