@@ -58,12 +58,17 @@ Router: Does the wire-framing. Listens from the presenter about which screen to 
 Unit testing for this project has been done using BDD, with the help of the Quick and Nimble frameworks.  
 Quick and Nimble allows to easily describe how each part of test acts and behaves by describing each unit of code and asserting on the value we expect.
 
+With the consideration of time, this project is not 100% covered by unit tests. I tried to break out the HomeScreenModule as best as possible and fully test the functions for the view, interactor, presentor, and router, in order to demonstrate unit testing knowledge. 
+
+If time allowed, I would continue to unit test the DetailScreenModule, and other views and services contained in this project.
+
 
 ### Xcode
 Compiled using Xcode 11.3.1
 
 ## Dependencies Used
--  [KingFisher](https://github.com/onevcat/Kingfisher)
+- [KingFisher](https://github.com/onevcat/Kingfisher)
 - [Lottie](https://github.com/airbnb/lottie-ios)
 - [SkeletonView](https://github.com/Juanpe/SkeletonView)
+- [Reachability](https://github.com/ashleymills/Reachability.swift)
 
