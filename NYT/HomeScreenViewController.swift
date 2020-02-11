@@ -111,7 +111,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         return view
     }()
     
-    let activityIndicator = UIActivityIndicatorView(style: .large)
+    let activityIndicator = UIActivityIndicatorView(style: .gray)
     
     lazy var paginationLoadingView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 150))
@@ -119,6 +119,7 @@ class HomeScreenViewController: UIViewController, HomeScreenViewProtocol {
         
         self.activityIndicator.color = .black
         self.activityIndicator.center = view.center
+        self.activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         view.addSubview(self.activityIndicator)
         self.activityIndicator.startAnimating()

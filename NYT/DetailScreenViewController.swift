@@ -13,6 +13,8 @@ import SkeletonView
 
 class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     
+    
+    
     var presenter: DetailScreenPresenterProtocol?
     var article: Article?
     
@@ -34,7 +36,7 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         
         return view
     }()
-
+    
     var shareButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "share_button"), for: .normal)
@@ -59,16 +61,24 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     }
     
     func loadURL() {
-        if let urlString = article?.webURL, let url = URL(string: urlString) {
-            do {
-                let some = try String(contentsOf: url)
-                self.webView.loadHTMLString(some, baseURL: nil)
-            } catch (let error) {
-                print(error)
-                self.setIsLoading(false)
-                self.displayErrorView()
-            }
+        if let urlString = article?.webURL {
+            self.presenter?.loadURL(urlString: urlString)
         }
+    }
+    
+    func displayWebContent(content: String) {
+        self.webView.loadHTMLString(content, baseURL: nil)
+    }
+    
+    func displayConnectionError() {
+        let alert = UIAlertController(title: "Connection Error", message: "You are not connected to the internet. Connect and try again!", preferredStyle: .alert)
+        let tryAgain = UIAlertAction(title: "Try Again", style: .default) { (action) in
+            self.loadURL()
+        }
+        let cancel = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(tryAgain)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func displayErrorView() {
@@ -87,19 +97,19 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         self.view.addSubview(loadingView)
         self.view.addSubview(shareButton)
         self.view.bringSubviewToFront(shareButton)
-
+        
         
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-
+            
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             loadingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-
+            
             shareButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             shareButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: view.bounds.height / 2 - 50),
             shareButton.heightAnchor.constraint(equalToConstant: 46),
@@ -119,7 +129,7 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
             }
         }
     }
-
+    
     @objc func shareButtonTapped() {
         if let urlString = article?.webURL {
             let uiActivityController = UIActivityViewController(activityItems: [urlString], applicationActivities: nil)

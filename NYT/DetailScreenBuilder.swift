@@ -15,7 +15,7 @@ protocol DetailScreenRouterProtocol: class {
 }
 //MARK: Presenter -
 protocol DetailScreenPresenterProtocol: class {
-    
+    func loadURL(urlString: String)
 }
 
 //MARK: Interactor -
@@ -29,6 +29,9 @@ protocol DetailScreenViewProtocol: class {
     
     var presenter: DetailScreenPresenterProtocol?  { get set }
     func setIsLoading(_ isLoading: Bool)
+    func displayWebContent(content: String)
+    func displayErrorView()
+    func displayConnectionError()
 }
 
 class DetailScreenBuilder {
