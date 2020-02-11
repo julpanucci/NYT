@@ -47,4 +47,8 @@ class DetailScreenPresenter: DetailScreenPresenterProtocol {
             }
         }
     }
+    
+    func shareButtonTapped(url: URL) {
+        self.router.presentShareActivity(url: url)
+    }
 }

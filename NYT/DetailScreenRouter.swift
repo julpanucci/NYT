@@ -12,4 +12,10 @@ import UIKit
 class DetailScreenRouter: DetailScreenRouterProtocol {
     
     weak var viewController: UIViewController?
+    
+    func presentShareActivity(url: URL) {
+        let uiActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        uiActivityController.popoverPresentationController?.sourceView = self.viewController?.view
+        self.viewController?.present(uiActivityController, animated: true, completion: nil)
+    }
 }

@@ -33,8 +33,8 @@ class ArticleCell: UITableViewCell {
         return imageView
     }()
     
-    var headLineLabel: NoPaddingLabel = {
-        let label = NoPaddingLabel()
+    var headLineLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         label.textColor = .black

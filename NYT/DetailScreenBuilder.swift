@@ -11,11 +11,12 @@ import UIKit
 
 //MARK: Router -
 protocol DetailScreenRouterProtocol: class {
-    
+    func presentShareActivity(url: URL)
 }
 //MARK: Presenter -
 protocol DetailScreenPresenterProtocol: class {
     func loadURL(urlString: String)
+    func shareButtonTapped(url: URL)
 }
 
 //MARK: Interactor -
@@ -32,6 +33,7 @@ protocol DetailScreenViewProtocol: class {
     func displayWebContent(content: String)
     func displayErrorView()
     func displayConnectionError()
+    
 }
 
 class DetailScreenBuilder {

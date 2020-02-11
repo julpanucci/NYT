@@ -13,8 +13,6 @@ import SkeletonView
 
 class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     
-    
-    
     var presenter: DetailScreenPresenterProtocol?
     var article: Article?
     
@@ -98,7 +96,6 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
         self.view.addSubview(shareButton)
         self.view.bringSubviewToFront(shareButton)
         
-        
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             webView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -131,10 +128,8 @@ class DetailScreenViewController: UIViewController, DetailScreenViewProtocol {
     }
     
     @objc func shareButtonTapped() {
-        if let urlString = article?.webURL {
-            let uiActivityController = UIActivityViewController(activityItems: [urlString], applicationActivities: nil)
-            uiActivityController.popoverPresentationController?.sourceView = self.view
-            self.present(uiActivityController, animated: true, completion: nil)
+        if let urlString = article?.webURL, let url = URL(string: urlString) {
+            self.presenter?.shareButtonTapped(url: url)
         }
     }
     
