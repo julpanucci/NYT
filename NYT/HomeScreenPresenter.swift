@@ -24,7 +24,9 @@ class HomeScreenPresenter: HomeScreenPresenterProtocol {
     func getArticles(searchText: String, page: Int) {
         self.interactor?.getArticles(searchText: searchText, page: page)
         DispatchQueue.main.async {
-            self.view?.setIsLoading(true)
+            if page == 0 {
+                self.view?.setIsLoading(true)
+            }
         }
     }
     

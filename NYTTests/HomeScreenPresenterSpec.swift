@@ -16,31 +16,58 @@ class HomeScreenPresenterSpec: QuickSpec {
             }
             
             describe("when .getArticles()") {
-                beforeEach {
-                    uut?.getArticles(searchText: "some text", page: 0)
-                }
                 
-                it("calls .interactor.getArticles()") {
-                    let interactor = uut?.interactor as? MockHomeScreenInteractor
-                    expect(interactor?.getArticlesWasCalled).to(beTrue())
-                }
-                
-                describe("that call") {
-                    it("has .searchText equal to 'some text'") {
-                        let interactor = uut?.interactor as? MockHomeScreenInteractor
-                        expect(interactor?.searchText).to(equal("some text"))
+                describe("when .page is 0") {
+                    beforeEach {
+                        uut?.getArticles(searchText: "some text", page: 0)
                     }
                     
-                    it("has .page equal to 0") {
+                    it("calls .interactor.getArticles()") {
                         let interactor = uut?.interactor as? MockHomeScreenInteractor
-                        expect(interactor?.page).to(equal(0))
+                        expect(interactor?.getArticlesWasCalled).to(beTrue())
+                    }
+                    
+                    describe("that call") {
+                        it("has .searchText equal to 'some text'") {
+                            let interactor = uut?.interactor as? MockHomeScreenInteractor
+                            expect(interactor?.searchText).to(equal("some text"))
+                        }
+                        
+                        it("has .page equal to 0") {
+                            let interactor = uut?.interactor as? MockHomeScreenInteractor
+                            expect(interactor?.page).to(equal(0))
+                        }
+                    }
+                    
+                    it("calls .view.setIsLoading(true)") {
+                        let view = uut?.view as? MockHomeScreenViewController
+                        expect(view?.setIsLoadingWasCalled).toEventually(beTrue())
+                        expect(view?.isLoading).toEventually(beTrue())
                     }
                 }
                 
-                it("calls .view.setIsLoading(true)") {
-                    let view = uut?.view as? MockHomeScreenViewController
-                    expect(view?.setIsLoadingWasCalled).toEventually(beTrue())
-                    expect(view?.isLoading).toEventually(beTrue())
+                
+                describe("when .page is not 0") {
+                    beforeEach {
+                        uut?.getArticles(searchText: "some text", page: 1)
+                    }
+                    
+                    it("calls .interactor.getArticles()") {
+                        let interactor = uut?.interactor as? MockHomeScreenInteractor
+                        expect(interactor?.getArticlesWasCalled).to(beTrue())
+                    }
+                    
+                    describe("that call") {
+                        it("has .searchText equal to 'some text'") {
+                            let interactor = uut?.interactor as? MockHomeScreenInteractor
+                            expect(interactor?.searchText).to(equal("some text"))
+                        }
+                        
+                        it("has .page equal to 1") {
+                            let interactor = uut?.interactor as? MockHomeScreenInteractor
+                            expect(interactor?.page).to(equal(1))
+                        }
+                    }
                 }
                 
             }
