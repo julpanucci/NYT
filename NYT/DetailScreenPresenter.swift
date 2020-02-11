@@ -15,22 +15,16 @@ class DetailScreenPresenter: DetailScreenPresenterProtocol {
     var interactor: DetailScreenInteractorProtocol?
     private let router: DetailScreenRouterProtocol
     
-    let reachability = try! Reachability()
+    var reachabilityService = ReachabilityService.shared
 
     init(interface: DetailScreenViewProtocol, interactor: DetailScreenInteractorProtocol?, router: DetailScreenRouterProtocol) {
         self.view = interface
         self.interactor = interactor
         self.router = router
-        
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
     }
     
     func loadURL(urlString: String) {
-        if reachability.connection == .unavailable {
+        if reachabilityService.connectionIsUnavailable() {
             DispatchQueue.main.async {
                 self.view?.setIsLoading(false)
                 self.view?.displayConnectionError()

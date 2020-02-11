@@ -15,31 +15,25 @@ class HomeScreenPresenter: HomeScreenPresenterProtocol {
     var interactor: HomeScreenInteractorProtocol?
     let router: HomeScreenRouterProtocol
     
-    let reachability = try! Reachability()
+    var reachabilityService = ReachabilityService.shared
     
     init(interface: HomeScreenViewProtocol, interactor: HomeScreenInteractorProtocol?, router: HomeScreenRouterProtocol) {
         self.view = interface
         self.interactor = interactor
         self.router = router
-        
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
     }
     
     
     func getArticles(searchText: String, page: Int) {
-        if reachability.connection == .unavailable {
+        if page == 0 && reachabilityService.connectionIsUnavailable() {
             self.view?.displayError(title: "Connection error", message: "You are not connected to the internet. Connect and try again!")
         } else {
             self.interactor?.getArticles(searchText: searchText, page: page)
-                 DispatchQueue.main.async {
-                     if page == 0 {
-                         self.view?.setIsLoading(true)
-                     }
-                 }
+            DispatchQueue.main.async {
+                if page == 0 {
+                    self.view?.setIsLoading(true)
+                }
+            }
         }
     }
     

@@ -17,6 +17,8 @@
 		43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */; };
 		43CD261723F1F2D90095D566 /* MockHomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD261623F1F2D90095D566 /* MockHomeScreenInteractor.swift */; };
 		B90E29B223F2E0250072837C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E29B123F2E0250072837C /* Reachability.swift */; };
+		B90E29B423F2EA430072837C /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E29B323F2EA430072837C /* ReachabilityService.swift */; };
+		B90E29B623F2ECAB0072837C /* MockReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E29B523F2ECAB0072837C /* MockReachabilityService.swift */; };
 		B9324B3C23E9998700D0089F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9324B3B23E9998700D0089F /* CoreData.framework */; };
 		B9324B3F23E9998700D0089F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9324B3E23E9998700D0089F /* AppDelegate.swift */; };
 		B9324B4823E9998700D0089F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9324B4723E9998700D0089F /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		43CD261423F1F25C0095D566 /* HomeScreenPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenterSpec.swift; sourceTree = "<group>"; };
 		43CD261623F1F2D90095D566 /* MockHomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeScreenInteractor.swift; sourceTree = "<group>"; };
 		B90E29B123F2E0250072837C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B90E29B323F2EA430072837C /* ReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		B90E29B523F2ECAB0072837C /* MockReachabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReachabilityService.swift; sourceTree = "<group>"; };
 		B9324B3823E9998700D0089F /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9324B3B23E9998700D0089F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9324B3E23E9998700D0089F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				43CD261123F1E03D0095D566 /* MockTableView.swift */,
 				B9DE52B923F21535002F01E0 /* MockArticleService.swift */,
 				B9DE52BD23F21E9C002F01E0 /* MockNavigationController.swift */,
+				B90E29B523F2ECAB0072837C /* MockReachabilityService.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		B9324B2F23E9998700D0089F = {
 			isa = PBXGroup;
 			children = (
+				B90E29B323F2EA430072837C /* ReachabilityService.swift */,
 				B9324B3D23E9998700D0089F /* NYT */,
 				B9324B5423E9998700D0089F /* NYTTests */,
 				B9324B3A23E9998700D0089F /* Frameworks */,
@@ -495,6 +501,7 @@
 				B9324B6823E99A2700D0089F /* HomeScreenRouter.swift in Sources */,
 				B9324B6923E99A2700D0089F /* HomeScreenViewController.swift in Sources */,
 				B9324B8823E99F4400D0089F /* HTTPService.swift in Sources */,
+				B90E29B423F2EA430072837C /* ReachabilityService.swift in Sources */,
 				B94CD95523EB50B800218DC4 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +514,7 @@
 				B9DE52BC23F21CE4002F01E0 /* HomeScreenRouterSpec.swift in Sources */,
 				B9DE52B823F214AF002F01E0 /* HomeScreenInteractorSpec.swift in Sources */,
 				4359812123F1CF22001F7349 /* HomeScreenViewControllerSpec.swift in Sources */,
+				B90E29B623F2ECAB0072837C /* MockReachabilityService.swift in Sources */,
 				43CD261523F1F25C0095D566 /* HomeScreenPresenterSpec.swift in Sources */,
 				4359812A23F1DD7F001F7349 /* MockHomeScreenPresenter.swift in Sources */,
 				B9DE52B623F20BD5002F01E0 /* MockHomeScreenViewController.swift in Sources */,
