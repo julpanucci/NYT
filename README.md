@@ -49,7 +49,9 @@ Interactor: Has the business logics of an app. Primarily make API calls to fetch
 Router: Does the wire-framing. Listens from the presenter about which screen to present and executes that.
 Entity: Model classes used by the interactor.
 
-Presenter : Gets user response from the View and work accordingly. Only class to communicate with all the other components. Calls the router for wire-framing, Interactor to fetch data (network calls or local data calls), view to update the UI. 
+Presenter : Gets user response from the View and work accordingly. Only class to communicate with all the other components. Calls the router for wire-framing, Interactor to fetch data (network calls or local data calls), view to update the UI.
+
+Entity: Model being used
 
 Router: Does the wire-framing. Listens from the presenter about which screen to present and executes that.
 
